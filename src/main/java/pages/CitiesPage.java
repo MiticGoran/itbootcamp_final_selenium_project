@@ -33,8 +33,8 @@ public class CitiesPage extends BasePage{
         return driver.findElement
                 (By.xpath("//div[2]/button[2]"));
     }
-    public List<WebElement> waitForNoRows(int rows){
-        return wait.until(ExpectedConditions.numberOfElementsToBe
+    public void waitForNoRows(int rows){
+        wait.until(ExpectedConditions.numberOfElementsToBe
                 (By.xpath("//div[@class='v-data-table__wrapper']//tbody/tr"), rows));
     }
     public WebElement getCell(int row, int column){
