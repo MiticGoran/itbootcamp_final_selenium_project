@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class CitiesPage extends BasePage{
     public CitiesPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
@@ -16,22 +18,13 @@ public class CitiesPage extends BasePage{
     public WebElement searchInput(){
         return driver.findElement(By.id("search"));
     }
-    public WebElement deleteButton(){
-        return driver.findElement(By.id("delete"));
-    }
-    public WebElement editButton(){
-        return driver.findElement(By.id("edit"));
-    }
     public WebElement waitForEditCreateDialogueVisibility(){
-        return wait.until
-                (ExpectedConditions.visibilityOfElementLocated
+        return wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.xpath("//div[contains(@class, 'dlgNewEditItem')]")));
     }
     public WebElement waitForDeleteDialogueVisibility(){
-        return wait.until
-                (ExpectedConditions.visibilityOfElementLocated
-                (By.xpath
-                ("//div[contains(@class, 'v-dialog')]//header[contains(@class, 'warning')]")));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated
+                (By.xpath("//div[contains(@class, 'v-dialog')]//header[contains(@class, 'warning')]")));
     }
     public WebElement saveButtonFromDialogue(){
         return driver.findElement(By.className("btnSave"));
@@ -39,6 +32,19 @@ public class CitiesPage extends BasePage{
     public WebElement deleteButtonFromDialogue(){
         return driver.findElement
                 (By.xpath("//div[2]/button[2]"));
+    }
+    public List<WebElement> waitForNoRows(int rows){
+        return wait.until(ExpectedConditions.numberOfElementsToBe
+                (By.xpath("//div[@class='v-data-table__wrapper']//tbody/tr"), rows));
+    }
+    public WebElement getCell(int row, int column){
+        return driver.findElement(By.xpath("//table/tbody/tr["+row+"]/td["+column+"]"));
+    }
+    public WebElement editButtonForRow(int row){
+        return driver.findElement(By.xpath("//tr["+row+"]/td[1]/div/button[@id='edit']"));
+    }
+    public WebElement deleteButtonForRow(int row){
+        return driver.findElement(By.xpath("//tr["+row+"]/td[1]/div/button[@id='delete']"));
     }
 
 }
