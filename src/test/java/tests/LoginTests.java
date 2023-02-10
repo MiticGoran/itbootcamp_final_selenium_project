@@ -9,7 +9,6 @@ public class LoginTests extends BasicTest{
     @Test(priority = 1)
     @Description("Test #1: Visits the login page")
     public void visitTheLoginPage(){
-        driver.get(baseUrl);
         navPage.changeLanguageButton().click();
         navPage.enLanguage().click();
         navPage.loginButton().click();
@@ -34,7 +33,7 @@ public class LoginTests extends BasicTest{
         loginPage.loginButton().click();
         messagePopUpPage.waitForPopUp();
         Assert.assertTrue(messagePopUpPage.popUpText().contains("User does not exists"),
-                "Error notification doesn't contains 'User does not exists' text");
+                "Error notification doesn't contain 'User does not exists' text");
         Assert.assertTrue(driver.getCurrentUrl().contains("/login"),
                 "Wrong URL, not on login page!");
     }
@@ -47,7 +46,7 @@ public class LoginTests extends BasicTest{
         loginPage.loginButton().click();
         messagePopUpPage.waitForPopUp();
         Assert.assertTrue(messagePopUpPage.popUpText().contains("Wrong password"),
-                "Error notification doesn't contains 'Wrong password' text");
+                "Error notification doesn't contain 'Wrong password' text");
         Assert.assertTrue(driver.getCurrentUrl().contains("/login"),
                 "Wrong URL, not on login page!");
     }
