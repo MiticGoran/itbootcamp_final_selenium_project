@@ -58,7 +58,7 @@ public abstract class BasicTest {
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh-mm-ss");
             String strDate = dateFormat.format(date);
             File f = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            Files.copy(f.toPath(), new File("screenshots/"+strDate+".jpg").toPath());
+            Files.copy(f.toPath(), new File("screenshots/testfail-"+strDate+".jpg").toPath());
         }
     }
     @AfterClass
