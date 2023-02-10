@@ -47,4 +47,7 @@ public class CitiesPage extends BasePage{
         return driver.findElement(By.xpath("//tr["+row+"]/td[1]/div/button[@id='delete']"));
     }
 
+    public WebElement cityNameInput(){
+        return driver.findElement(By.id("name"));
+    }
 }

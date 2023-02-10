@@ -5,14 +5,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SignupTests extends BasicTest{
-    @Test(priority = 1)
+    @Test(priority = 10)
     @Description("Test #1: Visits the signup page")
     public void visitTheSignupPage(){
         navPage.signUpButton().click();
         Assert.assertTrue(driver.getCurrentUrl().contains("/signup"),
                 "Wrong URL, not on signup page!");
     }
-    @Test(priority = 2)
+    @Test(priority = 20)
     @Description("Test #2: Checks input types")
     public void checkInputTypes(){
         navPage.signUpButton().click();
@@ -23,7 +23,7 @@ public class SignupTests extends BasicTest{
         Assert.assertEquals(signupPage.confirmPasswordInput().getAttribute("type"), "password",
                 "Wrong confirm password type");
     }
-    @Test(priority = 3)
+    @Test(priority = 30)
     @Description("Test #3: Displays errors when user already exists")
     public void errorWhenUserAlreadyExists(){
         navPage.signUpButton().click();
@@ -40,7 +40,7 @@ public class SignupTests extends BasicTest{
         Assert.assertTrue(driver.getCurrentUrl().contains("/signup"),
                 "Wrong URL, not on signup page!");
     }
-    @Test(priority = 4)
+    @Test(priority = 40)
     @Description("Test #4: Signup")
     public void signUp() throws InterruptedException {
         navPage.signUpButton().click();

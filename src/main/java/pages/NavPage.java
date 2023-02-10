@@ -23,10 +23,10 @@ public class NavPage extends BasePage {
         return driver.findElement(By.className("btnAdmin"));
     }
     public WebElement cities() {
-        return driver.findElement(By.id("list-item-391"));
+        return driver.findElement(By.xpath("//a[@href='/admin/cities']"));
     }
     public WebElement users() {
-        return driver.findElement(By.id("list-item-394"));
+        return driver.findElement(By.xpath("//a[@href='/admin/users']"));
     }
     public WebElement loginButton(){
         return driver.findElement(By.xpath("//a[@href='/login']"));

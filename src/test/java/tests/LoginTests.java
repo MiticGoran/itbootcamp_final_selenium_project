@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginTests extends BasicTest{
-    @Test(priority = 1)
+    @Test(priority = 10)
     @Description("Test #1: Visits the login page")
     public void visitTheLoginPage(){
         navPage.changeLanguageButton().click();
@@ -15,7 +15,7 @@ public class LoginTests extends BasicTest{
         Assert.assertTrue(driver.getCurrentUrl().contains("/login"),
                 "Wrong URL, not on login page!");
     }
-    @Test(priority = 2)
+    @Test(priority = 20)
     @Description("Test #2: Checks input types")
     public void checkInputTypes(){
         navPage.loginButton().click();
@@ -24,7 +24,7 @@ public class LoginTests extends BasicTest{
         Assert.assertEquals(loginPage.passwordInput().getAttribute("type"), "password",
                 "Wrong password type.");
     }
-    @Test(priority = 3)
+    @Test(priority = 30)
     @Description("Test #3: Displays errors when user does not exist")
     public void errorWhenUserDoesNotExist(){
         navPage.loginButton().click();
@@ -37,7 +37,7 @@ public class LoginTests extends BasicTest{
         Assert.assertTrue(driver.getCurrentUrl().contains("/login"),
                 "Wrong URL, not on login page!");
     }
-    @Test(priority = 4)
+    @Test(priority = 40)
     @Description("Test #4: Displays errors when password is wrong")
     public void errorWhenPasswordIsWrong(){
         navPage.loginButton().click();
@@ -50,7 +50,7 @@ public class LoginTests extends BasicTest{
         Assert.assertTrue(driver.getCurrentUrl().contains("/login"),
                 "Wrong URL, not on login page!");
     }
-    @Test(priority = 5)
+    @Test(priority = 50)
     @Description("Test #5: Login")
     public void login() throws InterruptedException {
         navPage.loginButton().click();
@@ -61,7 +61,7 @@ public class LoginTests extends BasicTest{
         Assert.assertTrue(driver.getCurrentUrl().contains("/home"),
                 "Wrong URL, not on home page!");
     }
-    @Test(priority = 6)
+    @Test(priority = 60)
     @Description("Test #6: Logout")
     public void logout(){
         Assert.assertTrue(navPage.logoutButton().isDisplayed(), "Logout button is not visible");
