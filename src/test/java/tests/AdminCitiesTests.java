@@ -1,6 +1,7 @@
 package tests;
 
 import com.sun.org.glassfish.gmbal.Description;
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -27,4 +28,35 @@ public class AdminCitiesTests extends BasicTest{
         Assert.assertEquals(citiesPage.cityNameInput().getAttribute("type"), "text",
                 "Wrong city name input type.");
     }
+    @Test(priority = 30)
+    @Description("Test #3: Create new city")
+    public void createNewCity() {
+        navPage.adminButton().click();
+        navPage.cities().click();
+        citiesPage.newItemButton().click();
+        citiesPage.waitForEditCreateDialogueVisibility();
+        citiesPage.cityNameInput().sendKeys("Goran Mitic's city");
+        citiesPage.saveButtonFromDialogue().click();
+        messagePopUpPage.waitForPopUpSaved();
+        Assert.assertTrue(messagePopUpPage.popUpTextSaved().contains("Saved successfully"),
+                "Error notification doesn't contain 'Saved successfully' text");
+    }
+    @Test(priority = 40)
+    @Description("Test #4: Edit city")
+    public void editCity() throws InterruptedException {
+        navPage.adminButton().click();
+        navPage.cities().click();
+        citiesPage.searchInput().sendKeys("Goran Mitic's city");
+        citiesPage.waitForNoRows(1);
+        citiesPage.editButtonForRow(1).click();
+        citiesPage.cityNameInput().click();
+        citiesPage.cityNameInput().sendKeys(Keys.CONTROL + "a");
+        citiesPage.cityNameInput().sendKeys(Keys.BACK_SPACE);
+        citiesPage.cityNameInput().sendKeys("Goran Mitic's city edited");
+        citiesPage.saveButtonFromDialogue().click();
+        messagePopUpPage.waitForPopUpSaved();
+        Assert.assertTrue(messagePopUpPage.popUpTextSaved().contains("Saved successfully"),
+                "Error notification doesn't contain 'Saved successfully' text");
+    }
+
 }

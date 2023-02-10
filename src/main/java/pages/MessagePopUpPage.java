@@ -13,9 +13,18 @@ public class MessagePopUpPage extends BasePage{
     public void waitForPopUp(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("v-snack__content")));
     }
+    public void waitForPopUpSaved(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated
+                (By.xpath("//div[2]/div/div[3]/div/div/div/div/div[1]")));
+    }
+    public String popUpTextSaved(){
+        return driver.findElement
+                (By.xpath("//div[2]/div/div[3]/div/div/div/div/div[1]")).getText();
+    }
     public void waitForVerifyYourAccountPopUp(){
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("dlgVerifyAccount")));
     }
+
     public String verifyPopUpText(){
         return driver.findElement(By.className("dlgVerifyAccount")).getText();
     }
@@ -28,5 +37,6 @@ public class MessagePopUpPage extends BasePage{
     public WebElement CloseButton(){
         return driver.findElement(By.xpath("//div[1]/button"));
     }
+
 
 }
