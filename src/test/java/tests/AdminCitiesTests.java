@@ -26,7 +26,7 @@ public class AdminCitiesTests extends BasicTest{
         citiesPage.getNewItemButton().click();
         citiesPage.waitForEditAndCreateDialogueVisibility();
         Assert.assertEquals(citiesPage.getCityNameInput().getAttribute("type"), "text",
-                "Wrong city name input type.");
+                "Wrong city name input type!");
     }
     @Test(priority = 30)
     @Description("Test #3: Create new city")
@@ -39,7 +39,7 @@ public class AdminCitiesTests extends BasicTest{
         citiesPage.getSaveButtonFromDialogue().click();
         messagePopUpPage.waitForPopUpSaved();
         Assert.assertTrue(messagePopUpPage.popUpSavedText().contains("Saved successfully"),
-                "Error notification doesn't contain 'Saved successfully' text");
+                "Error notification doesn't contain 'Saved successfully' text!");
     }
     @Test(priority = 40)
     @Description("Test #4: Edit city")
@@ -56,7 +56,7 @@ public class AdminCitiesTests extends BasicTest{
         citiesPage.getSaveButtonFromDialogue().click();
         messagePopUpPage.waitForPopUpSaved();
         Assert.assertTrue(messagePopUpPage.popUpSavedText().contains("Saved successfully"),
-                "Error notification doesn't contain 'Saved successfully' text");
+                "Error notification doesn't contain 'Saved successfully' text!");
     }
     @Test(priority = 50)
     @Description("Test #5: Search city")
@@ -66,7 +66,7 @@ public class AdminCitiesTests extends BasicTest{
         citiesPage.getSearchInput().sendKeys("Goran Mitic's city edited");
         citiesPage.waitForNoRows(1);
         Assert.assertEquals(citiesPage.getCell(1, 2).getText(), "Goran Mitic's city edited",
-                "Wrong city name");
+                "Wrong city name!");
     }
     @Test(priority = 60)
     @Description("Test #6: Delete city")
@@ -82,6 +82,6 @@ public class AdminCitiesTests extends BasicTest{
         citiesPage.getDeleteButtonFromDialogue().click();
         messagePopUpPage.waitForPopUpDeleted();
         Assert.assertTrue(messagePopUpPage.popUpDeletedText().contains("Deleted successfully"),
-                "Notification doesn't contain 'Deleted successfully' text");
+                "Notification doesn't contain 'Deleted successfully' text!");
     }
 }

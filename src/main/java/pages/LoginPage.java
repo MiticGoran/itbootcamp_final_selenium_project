@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends BasePage{
@@ -17,6 +18,10 @@ public class LoginPage extends BasePage{
     }
     public WebElement getLoginButton(){
         return driver.findElement(By.xpath("//button[@type='submit']"));
+    }
+    public void waitForWelcomeHome(){
+        wait.until(ExpectedConditions
+                .presenceOfElementLocated(By.xpath("//div[1]/div[2]/h1")));
     }
 
 }

@@ -20,9 +20,9 @@ public class LoginTests extends BasicTest{
     public void checkInputTypes(){
         navPage.getLoginButtonLink().click();
         Assert.assertEquals(loginPage.getEmailInput().getAttribute("type"), "email",
-                "Wrong email type.");
+                "Wrong email type!");
         Assert.assertEquals(loginPage.getPasswordInput().getAttribute("type"), "password",
-                "Wrong password type.");
+                "Wrong password type!");
     }
     @Test(priority = 30)
     @Description("Test #3: Displays errors when user does not exist")
@@ -46,7 +46,7 @@ public class LoginTests extends BasicTest{
         loginPage.getLoginButton().click();
         messagePopUpPage.waitForPopUp();
         Assert.assertTrue(messagePopUpPage.popUpText().contains("Wrong password"),
-                "Error notification doesn't contain 'Wrong password' text");
+                "Error notification doesn't contain 'Wrong password' text!");
         Assert.assertTrue(driver.getCurrentUrl().contains("/login"),
                 "Wrong URL, not on login page!");
     }
@@ -57,14 +57,14 @@ public class LoginTests extends BasicTest{
         loginPage.getEmailInput().sendKeys("admin@admin.com");
         loginPage.getPasswordInput().sendKeys("12345");
         loginPage.getLoginButton().click();
-        Thread.sleep(1000);
+        loginPage.waitForWelcomeHome();
         Assert.assertTrue(driver.getCurrentUrl().contains("/home"),
                 "Wrong URL, not on home page!");
     }
     @Test(priority = 60)
     @Description("Test #6: Logout")
     public void logout(){
-        Assert.assertTrue(navPage.getLogoutButton().isDisplayed(), "Logout button is not visible");
+        Assert.assertTrue(navPage.getLogoutButton().isDisplayed(), "Logout button is not visible!");
         navPage.getLogoutButton().click();
     }
 }
