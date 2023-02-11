@@ -9,19 +9,19 @@ public class SignupPage extends BasePage{
     public SignupPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
-    public WebElement nameInput(){
+    public WebElement getNameInput(){
         return driver.findElement(By.id("name"));
     }
-    public WebElement emailInput(){
+    public WebElement getEmailInput(){
         return driver.findElement(By.id("email"));
     }
-    public WebElement passwordInput(){
+    public WebElement getPasswordInput(){
         return driver.findElement(By.id("password"));
     }
-    public WebElement confirmPasswordInput(){
+    public WebElement getConfirmPasswordInput(){
         return driver.findElement(By.id("confirmPassword"));
     }
-    public WebElement signMeUpButton(){
+    public WebElement getSignMeUpButton(){
         return driver.findElement(By.xpath("//button[@type='submit']"));
     }
 }

@@ -9,13 +9,13 @@ public class LoginPage extends BasePage{
     public LoginPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
-    public WebElement emailInput(){
+    public WebElement getEmailInput(){
         return driver.findElement(By.id("email"));
     }
-    public WebElement passwordInput(){
+    public WebElement getPasswordInput(){
         return driver.findElement(By.id("password"));
     }
-    public WebElement loginButton(){
+    public WebElement getLoginButton(){
         return driver.findElement(By.xpath("//button[@type='submit']"));
     }
 

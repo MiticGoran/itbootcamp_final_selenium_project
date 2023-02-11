@@ -12,13 +12,13 @@ public class CitiesPage extends BasePage{
     public CitiesPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
-    public WebElement newItemButton(){
+    public WebElement getNewItemButton(){
         return driver.findElement(By.xpath("//div[@class='text-right']/button"));
     }
-    public WebElement searchInput(){
+    public WebElement getSearchInput(){
         return driver.findElement(By.id("search"));
     }
-    public WebElement waitForEditCreateDialogueVisibility(){
+    public WebElement waitForEditAndCreateDialogueVisibility(){
         return wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.xpath("//div[contains(@class, 'dlgNewEditItem')]")));
     }
@@ -26,10 +26,10 @@ public class CitiesPage extends BasePage{
         return wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.xpath("//div[contains(@class, 'v-dialog')]//header[contains(@class, 'warning')]")));
     }
-    public WebElement saveButtonFromDialogue(){
+    public WebElement getSaveButtonFromDialogue(){
         return driver.findElement(By.className("btnSave"));
     }
-    public WebElement deleteButtonFromDialogue(){
+    public WebElement getDeleteButtonFromDialogue(){
         return driver.findElement
                 (By.xpath("//div[2]/button[2]"));
     }
@@ -40,14 +40,14 @@ public class CitiesPage extends BasePage{
     public WebElement getCell(int row, int column){
         return driver.findElement(By.xpath("//table/tbody/tr["+row+"]/td["+column+"]"));
     }
-    public WebElement editButtonForRow(int row){
+    public WebElement getEditButtonForRow(int row){
         return driver.findElement(By.xpath("//tr["+row+"]/td[1]/div/button[@id='edit']"));
     }
-    public WebElement deleteButtonForRow(int row){
+    public WebElement getDeleteButtonForRow(int row){
         return driver.findElement(By.xpath("//tr["+row+"]/td[1]/div/button[@id='delete']"));
     }
 
-    public WebElement cityNameInput(){
+    public WebElement getCityNameInput(){
         return driver.findElement(By.id("name"));
     }
 }

@@ -10,49 +10,49 @@ public class NavPage extends BasePage {
         super(driver, wait);
     }
 
-    public WebElement homeLink() {
-        return driver.findElement(By.xpath("//a[@href='/']"));
+    public WebElement getHomeLink() {
+        return driver.findElement(By.xpath("//a[@href='/home']"));
     }
-    public WebElement aboutButton(){
-        return driver.findElement(By.className("btnAbout"));
+    public WebElement getAboutLink(){
+        return driver.findElement(By.xpath("//a[@href='/about']"));
     }
-    public WebElement myProfileButton() {
-        return driver.findElement(By.className("btnProfile"));
+    public WebElement getMyProfileLink() {
+        return driver.findElement(By.xpath("//a[@href='/profile']"));
     }
-    public WebElement adminButton() {
+    public WebElement getAdminButton() {
         return driver.findElement(By.className("btnAdmin"));
     }
-    public WebElement cities() {
+    public WebElement getCitiesLink() {
         return driver.findElement(By.xpath("//a[@href='/admin/cities']"));
     }
-    public WebElement users() {
+    public WebElement getUsersLink() {
         return driver.findElement(By.xpath("//a[@href='/admin/users']"));
     }
-    public WebElement loginButton(){
+    public WebElement getLoginButtonLink(){
         return driver.findElement(By.xpath("//a[@href='/login']"));
     }
-    public WebElement signUpButton(){
+    public WebElement getSignUpButtonLink(){
         return driver.findElement(By.xpath("//a[@href='/signup']"));
     }
-    public WebElement logoutButton(){
+    public WebElement getLogoutButton(){
         return driver.findElement(By.className("btnLogout"));
     }
-    public WebElement changeLanguageButton(){
+    public WebElement getChangeLanguageButton(){
         return driver.findElement(By.xpath("//button[contains(@class, 'btnLocaleActivation')]"));
     }
-    public WebElement enLanguage(){
+    public WebElement getEnLanguageButton(){
         return driver.findElement(By.id("list-item-73"));
     }
-    public WebElement esLanguage(){
+    public WebElement getEsLanguageButton(){
         return driver.findElement(By.id("list-item-75"));
     }
-    public WebElement frLanguage(){
+    public WebElement getFrLanguageButton(){
         return driver.findElement(By.id("list-item-77"));
     }
-    public WebElement cnLanguage(){
+    public WebElement getCnLanguageButton(){
         return driver.findElement(By.id("list-item-79"));
     }
-    public WebElement uaLanguage(){
+    public WebElement getUaLanguageButton(){
         return driver.findElement(By.id("list-item-81"));
     }
 

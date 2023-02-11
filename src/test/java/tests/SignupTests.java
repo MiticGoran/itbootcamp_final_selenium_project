@@ -8,32 +8,32 @@ public class SignupTests extends BasicTest{
     @Test(priority = 10)
     @Description("Test #1: Visits the signup page")
     public void visitTheSignupPage(){
-        navPage.signUpButton().click();
+        navPage.getSignUpButtonLink().click();
         Assert.assertTrue(driver.getCurrentUrl().contains("/signup"),
                 "Wrong URL, not on signup page!");
     }
     @Test(priority = 20)
     @Description("Test #2: Checks input types")
     public void checkInputTypes(){
-        navPage.signUpButton().click();
-        Assert.assertEquals(signupPage.emailInput().getAttribute("type"), "email",
+        navPage.getSignUpButtonLink().click();
+        Assert.assertEquals(signupPage.getEmailInput().getAttribute("type"), "email",
                 "Wrong email type.");
-        Assert.assertEquals(signupPage.passwordInput().getAttribute("type"), "password",
+        Assert.assertEquals(signupPage.getPasswordInput().getAttribute("type"), "password",
                 "Wrong password type.");
-        Assert.assertEquals(signupPage.confirmPasswordInput().getAttribute("type"), "password",
+        Assert.assertEquals(signupPage.getConfirmPasswordInput().getAttribute("type"), "password",
                 "Wrong confirm password type");
     }
     @Test(priority = 30)
     @Description("Test #3: Displays errors when user already exists")
     public void errorWhenUserAlreadyExists(){
-        navPage.signUpButton().click();
+        navPage.getSignUpButtonLink().click();
         Assert.assertTrue(driver.getCurrentUrl().contains("/signup"),
                 "Wrong URL, not on signup page!");
-        signupPage.nameInput().sendKeys("Another User");
-        signupPage.emailInput().sendKeys("admin@admin.com");
-        signupPage.passwordInput().sendKeys("12345");
-        signupPage.confirmPasswordInput().sendKeys("12345");
-        signupPage.signMeUpButton().click();
+        signupPage.getNameInput().sendKeys("Another User");
+        signupPage.getEmailInput().sendKeys("admin@admin.com");
+        signupPage.getPasswordInput().sendKeys("12345");
+        signupPage.getConfirmPasswordInput().sendKeys("12345");
+        signupPage.getSignMeUpButton().click();
         messagePopUpPage.waitForPopUp();
         Assert.assertTrue(messagePopUpPage.popUpText().contains("E-mail already exists"),
                 "Error notification doesn't contain 'E-mail already exists' text");
@@ -43,17 +43,16 @@ public class SignupTests extends BasicTest{
     @Test(priority = 40)
     @Description("Test #4: Signup")
     public void signUp() throws InterruptedException {
-        navPage.signUpButton().click();
-        signupPage.nameInput().sendKeys("Goran Mitic");
-        signupPage.emailInput().sendKeys("goran23@itbootcamp.rs");
-        signupPage.passwordInput().sendKeys("12345");
-        signupPage.confirmPasswordInput().sendKeys("12345");
-        signupPage.signMeUpButton().click();
+        navPage.getSignUpButtonLink().click();
+        signupPage.getNameInput().sendKeys("Goran Mitic");
+        signupPage.getEmailInput().sendKeys("goran91@itbootcamp.rs");
+        signupPage.getPasswordInput().sendKeys("12345");
+        signupPage.getConfirmPasswordInput().sendKeys("12345");
+        signupPage.getSignMeUpButton().click();
         messagePopUpPage.waitForVerifyYourAccountPopUp();
-        Thread.sleep(1000);
         Assert.assertTrue(messagePopUpPage.verifyPopUpText().contains("IMPORTANT: Verify your account"),
                 "Notification doesn't contain 'IMPORTANT: Verify your account' text");
         messagePopUpPage.closeButtonVerifyPopUp().click();
-        navPage.logoutButton().click();
+        navPage.getLogoutButton().click();
     }
 }

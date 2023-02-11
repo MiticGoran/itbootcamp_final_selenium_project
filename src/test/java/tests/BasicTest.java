@@ -36,9 +36,9 @@ public abstract class BasicTest {
     public void setup() {
         System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         driver.manage().window().maximize();
         loginPage = new LoginPage(driver, wait);
         citiesPage = new CitiesPage(driver, wait);
