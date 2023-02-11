@@ -11,7 +11,9 @@ public class MessagePopUpPage extends BasePage{
         super(driver, wait);
     }
     public void waitForPopUp(){
-
+        wait.until(ExpectedConditions
+                .visibilityOfElementLocated
+                        (By.xpath("//div/div[1]/ul/li")));
     }
     public void waitForPopUpDeleted(){
         wait.until(ExpectedConditions
@@ -38,9 +40,9 @@ public class MessagePopUpPage extends BasePage{
         return driver.findElement(By.className("dlgVerifyAccount")).getText();
     }
     public String popUpText(){
-        return driver.findElement(By.className("v-snack__content")).getText();
+        return driver.findElement(By.xpath("//div/div[1]/ul/li")).getText();
     }
-    public WebElement closeButtonVerifyPopUp(){
+    public WebElement getCloseButtonVerifyPopUp(){
         return driver.findElement(By.xpath("//div/div/div[3]/button"));
     }
     public WebElement getCloseButton(){

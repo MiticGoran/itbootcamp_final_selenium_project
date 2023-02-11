@@ -84,5 +84,4 @@ public class AdminCitiesTests extends BasicTest{
         Assert.assertTrue(messagePopUpPage.popUpDeletedText().contains("Deleted successfully"),
                 "Notification doesn't contain 'Deleted successfully' text");
     }
-
 }

@@ -45,14 +45,14 @@ public class SignupTests extends BasicTest{
     public void signUp() throws InterruptedException {
         navPage.getSignUpButtonLink().click();
         signupPage.getNameInput().sendKeys("Goran Mitic");
-        signupPage.getEmailInput().sendKeys("goran91@itbootcamp.rs");
+        signupPage.getEmailInput().sendKeys("goranm6@itbootcamp.rs");
         signupPage.getPasswordInput().sendKeys("12345");
         signupPage.getConfirmPasswordInput().sendKeys("12345");
         signupPage.getSignMeUpButton().click();
         messagePopUpPage.waitForVerifyYourAccountPopUp();
         Assert.assertTrue(messagePopUpPage.verifyPopUpText().contains("IMPORTANT: Verify your account"),
                 "Notification doesn't contain 'IMPORTANT: Verify your account' text");
-        messagePopUpPage.closeButtonVerifyPopUp().click();
+        messagePopUpPage.getCloseButtonVerifyPopUp().click();
         navPage.getLogoutButton().click();
     }
 }
