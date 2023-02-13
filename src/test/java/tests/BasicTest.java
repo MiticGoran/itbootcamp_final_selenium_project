@@ -46,6 +46,7 @@ public abstract class BasicTest {
         navPage = new NavPage(driver, wait);
         signupPage = new SignupPage(driver, wait);
     }
+
     @BeforeMethod
     public void beforeMethod() {
         driver.get(baseUrl);
@@ -53,14 +54,15 @@ public abstract class BasicTest {
 
     @AfterMethod
     public void afterMethod(ITestResult result) throws IOException {
-        if(result.getStatus() == ITestResult.FAILURE){
+        if (result.getStatus() == ITestResult.FAILURE) {
             Date date = Calendar.getInstance().getTime();
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh-mm-ss");
             String strDate = dateFormat.format(date);
-            File f = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            Files.copy(f.toPath(), new File("screenshots/testfail-"+strDate+".jpg").toPath());
+            File f = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            Files.copy(f.toPath(), new File("screenshots/testfail-" + strDate + ".jpg").toPath());
         }
     }
+
     @AfterClass
     public void afterClass() throws InterruptedException, IOException {
         Thread.sleep(2000);

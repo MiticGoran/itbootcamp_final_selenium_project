@@ -5,7 +5,7 @@ import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class AdminCitiesTests extends BasicTest{
+public class AdminCitiesTests extends BasicTest {
     @Test(priority = 10)
     @Description("Test #1: Visits the admin cities page and list cities")
     public void visitTheSignupPage() throws InterruptedException {
@@ -18,6 +18,7 @@ public class AdminCitiesTests extends BasicTest{
         Assert.assertTrue(driver.getCurrentUrl().contains("/admin/cities"),
                 "Wrong URL, not on cities page!");
     }
+
     @Test(priority = 20)
     @Description("Test #2: Checks input types for create/edit new city")
     public void checkInputTypes() throws InterruptedException {
@@ -28,6 +29,7 @@ public class AdminCitiesTests extends BasicTest{
         Assert.assertEquals(citiesPage.getCityNameInput().getAttribute("type"), "text",
                 "Wrong city name input type!");
     }
+
     @Test(priority = 30)
     @Description("Test #3: Create new city")
     public void createNewCity() {
@@ -37,10 +39,11 @@ public class AdminCitiesTests extends BasicTest{
         citiesPage.waitForEditAndCreateDialogueVisibility();
         citiesPage.getCityNameInput().sendKeys("Goran Mitic's city");
         citiesPage.getSaveButtonFromDialogue().click();
-        messagePopUpPage.waitForPopUpSaved();
-        Assert.assertTrue(messagePopUpPage.popUpSavedText().contains("Saved successfully"),
+        messagePopUpPage.waitForPopUpSavedOrDeleted();
+        Assert.assertTrue(messagePopUpPage.popUpSavedOrDeletedText().contains("Saved successfully"),
                 "Error notification doesn't contain 'Saved successfully' text!");
     }
+
     @Test(priority = 40)
     @Description("Test #4: Edit city")
     public void editCity() throws InterruptedException {
@@ -54,10 +57,11 @@ public class AdminCitiesTests extends BasicTest{
         citiesPage.getCityNameInput().sendKeys(Keys.BACK_SPACE);
         citiesPage.getCityNameInput().sendKeys("Goran Mitic's city edited");
         citiesPage.getSaveButtonFromDialogue().click();
-        messagePopUpPage.waitForPopUpSaved();
-        Assert.assertTrue(messagePopUpPage.popUpSavedText().contains("Saved successfully"),
+        messagePopUpPage.waitForPopUpSavedOrDeleted();
+        Assert.assertTrue(messagePopUpPage.popUpSavedOrDeletedText().contains("Saved successfully"),
                 "Error notification doesn't contain 'Saved successfully' text!");
     }
+
     @Test(priority = 50)
     @Description("Test #5: Search city")
     public void searchCity() {
@@ -68,6 +72,7 @@ public class AdminCitiesTests extends BasicTest{
         Assert.assertEquals(citiesPage.getCell(1, 2).getText(), "Goran Mitic's city edited",
                 "Wrong city name!");
     }
+
     @Test(priority = 60)
     @Description("Test #6: Delete city")
     public void deleteCity() {
@@ -80,8 +85,8 @@ public class AdminCitiesTests extends BasicTest{
         citiesPage.getDeleteButtonForRow(1).click();
         citiesPage.waitForDeleteDialogueVisibility();
         citiesPage.getDeleteButtonFromDialogue().click();
-        messagePopUpPage.waitForPopUpDeleted();
-        Assert.assertTrue(messagePopUpPage.popUpDeletedText().contains("Deleted successfully"),
+        messagePopUpPage.waitForPopUpSavedOrDeleted();
+        Assert.assertTrue(messagePopUpPage.popUpSavedOrDeletedText().contains("Deleted successfully"),
                 "Notification doesn't contain 'Deleted successfully' text!");
     }
 }

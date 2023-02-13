@@ -8,46 +8,56 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class CitiesPage extends BasePage{
+public class CitiesPage extends BasePage {
     public CitiesPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
-    public WebElement getNewItemButton(){
+
+    public WebElement getNewItemButton() {
         return driver.findElement(By.xpath("//div[@class='text-right']/button"));
     }
-    public WebElement getSearchInput(){
+
+    public WebElement getSearchInput() {
         return driver.findElement(By.id("search"));
     }
-    public WebElement waitForEditAndCreateDialogueVisibility(){
+
+    public WebElement waitForEditAndCreateDialogueVisibility() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.xpath("//div[contains(@class, 'dlgNewEditItem')]")));
     }
-    public WebElement waitForDeleteDialogueVisibility(){
+
+    public WebElement waitForDeleteDialogueVisibility() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated
                 (By.xpath("//div[contains(@class, 'v-dialog')]//header[contains(@class, 'warning')]")));
     }
-    public WebElement getSaveButtonFromDialogue(){
+
+    public WebElement getSaveButtonFromDialogue() {
         return driver.findElement(By.className("btnSave"));
     }
-    public WebElement getDeleteButtonFromDialogue(){
+
+    public WebElement getDeleteButtonFromDialogue() {
         return driver.findElement
                 (By.xpath("//div[2]/button[2]"));
     }
-    public void waitForNoRows(int rows){
+
+    public void waitForNoRows(int rows) {
         wait.until(ExpectedConditions.numberOfElementsToBe
                 (By.xpath("//div[@class='v-data-table__wrapper']//tbody/tr"), rows));
     }
-    public WebElement getCell(int row, int column){
-        return driver.findElement(By.xpath("//table/tbody/tr["+row+"]/td["+column+"]"));
-    }
-    public WebElement getEditButtonForRow(int row){
-        return driver.findElement(By.xpath("//tr["+row+"]/td[1]/div/button[@id='edit']"));
-    }
-    public WebElement getDeleteButtonForRow(int row){
-        return driver.findElement(By.xpath("//tr["+row+"]/td[1]/div/button[@id='delete']"));
+
+    public WebElement getCell(int row, int column) {
+        return driver.findElement(By.xpath("//table/tbody/tr[" + row + "]/td[" + column + "]"));
     }
 
-    public WebElement getCityNameInput(){
+    public WebElement getEditButtonForRow(int row) {
+        return driver.findElement(By.xpath("//tr[" + row + "]/td[1]/div/button[@id='edit']"));
+    }
+
+    public WebElement getDeleteButtonForRow(int row) {
+        return driver.findElement(By.xpath("//tr[" + row + "]/td[1]/div/button[@id='delete']"));
+    }
+
+    public WebElement getCityNameInput() {
         return driver.findElement(By.id("name"));
     }
 }
