@@ -31,7 +31,7 @@ public class AuthRoutesTests extends BasicTest {
 
     @Test(priority = 40)
     @Description("Test #4: Forbids visits to admin users url if not authenticated")
-    public void forbidsVisitsToAdminCUsersUrlIfNotAuthenticated() {
+    public void forbidsVisitsToAdminUsersUrlIfNotAuthenticated() {
         driver.get(baseUrl + "/admin/users");
         Assert.assertTrue(driver.getCurrentUrl().contains("/login"),
                 "Wrong URL, not on admin users page!");

@@ -48,7 +48,7 @@ public class SignupTests extends BasicTest {
     public void signUp() throws InterruptedException {
         navPage.getSignUpButtonLink().click();
         signupPage.getNameInput().sendKeys("Goran Mitic");
-        signupPage.getEmailInput().sendKeys("goranmita@itbootcamp.rs");
+        signupPage.getEmailInput().sendKeys("goranmita1@itbootcamp.rs");
         signupPage.getPasswordInput().sendKeys("12345");
         signupPage.getConfirmPasswordInput().sendKeys("12345");
         signupPage.getSignMeUpButton().click();

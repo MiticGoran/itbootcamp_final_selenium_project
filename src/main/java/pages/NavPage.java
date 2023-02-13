@@ -51,23 +51,23 @@ public class NavPage extends BasePage {
     }
 
     public WebElement getEnLanguageButton() {
-        return driver.findElement(By.id("list-item-73"));
+        return driver.findElement(By.className("btnEN"));
     }
 
     public WebElement getEsLanguageButton() {
-        return driver.findElement(By.id("list-item-75"));
+        return driver.findElement(By.className("btnES"));
     }
 
     public WebElement getFrLanguageButton() {
-        return driver.findElement(By.id("list-item-77"));
+        return driver.findElement(By.className("btnFR"));
     }
 
     public WebElement getCnLanguageButton() {
-        return driver.findElement(By.id("list-item-79"));
+        return driver.findElement(By.className("btnCN"));
     }
 
     public WebElement getUaLanguageButton() {
-        return driver.findElement(By.id("list-item-81"));
+        return driver.findElement(By.className("btnUA"));
     }
 
 }

@@ -32,6 +32,8 @@ public abstract class BasicTest {
     protected NavPage navPage;
     protected SignupPage signupPage;
 
+    protected ProfilePage profilePage;
+
     @BeforeClass
     public void setup() {
         System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
@@ -45,6 +47,7 @@ public abstract class BasicTest {
         messagePopUpPage = new MessagePopUpPage(driver, wait);
         navPage = new NavPage(driver, wait);
         signupPage = new SignupPage(driver, wait);
+        profilePage = new ProfilePage(driver, wait);
     }
 
     @BeforeMethod
