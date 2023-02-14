@@ -18,11 +18,19 @@ public class ProfileTests extends BasicTest {
         profilePage.waitForMyProfilePage();
         Assert.assertTrue(driver.getCurrentUrl().contains("/profile"),
                 "Wrong URL, not on 'My profile' page!");
+        Assert.assertEquals(profilePage.getEmailInput().getAttribute("value"),
+                "admin@admin.com",
+                "Wrong email value!");
+        navPage.getLogoutButton().click();
     }
 
     @Test(priority = 20)
     @Description("Test #2: Checks input types")
     public void checkInputTypes() {
+        navPage.getLoginButtonLink().click();
+        loginPage.getEmailInput().sendKeys("admin@admin.com");
+        loginPage.getPasswordInput().sendKeys("12345");
+        loginPage.getLoginButton().click();
         navPage.getMyProfileLink().click();
         profilePage.waitForMyProfilePage();
         JavascriptExecutor js = (JavascriptExecutor) driver;

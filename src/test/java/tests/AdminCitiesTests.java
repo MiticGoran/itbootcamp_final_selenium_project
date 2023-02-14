@@ -81,7 +81,7 @@ public class AdminCitiesTests extends BasicTest {
         citiesPage.getSearchInput().sendKeys("Goran Mitic's city edited");
         citiesPage.waitForNoRows(1);
         Assert.assertEquals(citiesPage.getCell(1, 2).getText(), "Goran Mitic's city edited",
-                "Wrong city name");
+                "Wrong city name!");
         citiesPage.getDeleteButtonForRow(1).click();
         citiesPage.waitForDeleteDialogueVisibility();
         citiesPage.getDeleteButtonFromDialogue().click();
