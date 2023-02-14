@@ -84,6 +84,33 @@ public class ProfileTests extends BasicTest {
         profilePage.getUrlGithubInput().click();
         profilePage.getUrlGithubInput().sendKeys(Keys.CONTROL + "a");
         profilePage.getUrlGithubInput().sendKeys(Keys.BACK_SPACE);
-        profilePage.getUrlGithubInput().sendKeys("https://github.com/MiticGoran");
+        profilePage.getUrlGithubInput().sendKeys("https://github.com/miticgoran");
+
+        profilePage.getSaveButton().click();
+        messagePopUpPage.waitForPopUpSavedProfile();
+        Assert.assertTrue(messagePopUpPage.popUpSavedProfileText().contains("Profile saved successfuly"),
+                "Notification doesn't contain 'Profile saved successfuly' text!");
+
+        Assert.assertEquals(profilePage.getNameInput().getAttribute("value"),
+                "Goran Mitic",
+                "Wrong name value!");
+        Assert.assertEquals(profilePage.getPhoneInput().getAttribute("value"),
+                "+38161283229",
+                "Wrong phone value!");
+        Assert.assertEquals(profilePage.getCityInput().getAttribute("value"),
+                "Bucaramanga",
+                "Wrong city value!");
+        Assert.assertEquals(profilePage.getCountryInput().getAttribute("value"),
+                "Spain",
+                "Wrong country value!");
+        Assert.assertEquals(profilePage.getUrlTwitterInput().getAttribute("value"),
+                "https://twitter.com/profile/milan1232",
+                "Wrong URL Twitter value!");
+        Assert.assertEquals(profilePage.getUrlGithubInput().getAttribute("value"),
+                "https://github.com/miticgoran",
+                "Wrong URL GitHub value!");
+
+        navPage.getLogoutButton().click();
+
     }
 }
