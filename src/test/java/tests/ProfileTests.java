@@ -56,7 +56,7 @@ public class ProfileTests extends BasicTest {
         navPage.getLogoutButton().click();
     }
 
-    @Test(priority = 20)
+    @Test(priority = 30)
     @Description("Test #3: Edits profile")
     public void editProfile() throws InterruptedException {
         navPage.getLoginButtonLink().click();
