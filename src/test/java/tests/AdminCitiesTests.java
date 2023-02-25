@@ -39,8 +39,8 @@ public class AdminCitiesTests extends BasicTest {
         citiesPage.waitForEditAndCreateDialogueVisibility();
         citiesPage.getCityNameInput().sendKeys("Goran Mitic's city");
         citiesPage.getSaveButtonFromDialogue().click();
-        messagePopUpPage.waitForPopUpSavedOrDeleted();
-        Assert.assertTrue(messagePopUpPage.popUpSavedOrDeletedText().contains("Saved successfully"),
+        messagePopUpPage.waitForPopUpSaved();
+        Assert.assertTrue(messagePopUpPage.popUpSavedText().contains("Saved successfully"),
                 "Error notification doesn't contain 'Saved successfully' text!");
     }
 
@@ -57,8 +57,8 @@ public class AdminCitiesTests extends BasicTest {
         citiesPage.getCityNameInput().sendKeys(Keys.BACK_SPACE);
         citiesPage.getCityNameInput().sendKeys("Goran Mitic's city edited");
         citiesPage.getSaveButtonFromDialogue().click();
-        messagePopUpPage.waitForPopUpSavedOrDeleted();
-        Assert.assertTrue(messagePopUpPage.popUpSavedOrDeletedText().contains("Saved successfully"),
+        messagePopUpPage.waitForPopUpSaved();
+        Assert.assertTrue(messagePopUpPage.popUpSavedText().contains("Saved successfully"),
                 "Error notification doesn't contain 'Saved successfully' text!");
     }
 
@@ -85,8 +85,8 @@ public class AdminCitiesTests extends BasicTest {
         citiesPage.getDeleteButtonForRow(1).click();
         citiesPage.waitForDeleteDialogueVisibility();
         citiesPage.getDeleteButtonFromDialogue().click();
-        messagePopUpPage.waitForPopUpSavedOrDeleted();
-        Assert.assertTrue(messagePopUpPage.popUpSavedOrDeletedText().contains("Deleted successfully"),
+        messagePopUpPage.waitForPopUpDeleted();
+        Assert.assertTrue(messagePopUpPage.popUpDeletedText().contains("Deleted successfully"),
                 "Notification doesn't contain 'Deleted successfully' text!");
     }
 }

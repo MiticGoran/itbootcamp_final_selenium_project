@@ -10,7 +10,7 @@ public class AuthRoutesTests extends BasicTest {
     public void forbidsVisitsToHomeUrlIfNotAuthenticated() {
         driver.get(baseUrl + "/home");
         Assert.assertTrue(driver.getCurrentUrl().contains("/login"),
-                "Wrong URL, not on home page!");
+                "User should be redirected to login page when not logged in!");
     }
 
     @Test(priority = 20)
@@ -18,7 +18,7 @@ public class AuthRoutesTests extends BasicTest {
     public void forbidsVisitsToProfileUrlIfNotAuthenticated() {
         driver.get(baseUrl + "/profile");
         Assert.assertTrue(driver.getCurrentUrl().contains("/login"),
-                "Wrong URL, not on profile page!");
+                "User should be redirected to login page when not logged in!");
     }
 
     @Test(priority = 30)
@@ -26,7 +26,7 @@ public class AuthRoutesTests extends BasicTest {
     public void forbidsVisitsToAdminCitiesUrlIfNotAuthenticated() {
         driver.get(baseUrl + "/admin/cities");
         Assert.assertTrue(driver.getCurrentUrl().contains("/login"),
-                "Wrong URL, not on admin cities page!");
+                "User should be redirected to login page when not logged in!");
     }
 
     @Test(priority = 40)
@@ -34,6 +34,6 @@ public class AuthRoutesTests extends BasicTest {
     public void forbidsVisitsToAdminUsersUrlIfNotAuthenticated() {
         driver.get(baseUrl + "/admin/users");
         Assert.assertTrue(driver.getCurrentUrl().contains("/login"),
-                "Wrong URL, not on admin users page!");
+                "User should be redirected to login page when not logged in!");
     }
 }
